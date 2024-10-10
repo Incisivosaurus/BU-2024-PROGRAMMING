@@ -52,7 +52,7 @@ for digit in number:
         real_digits += 1
 
         if real_digits == cast_digit_index:
-            print(f"First digit of {number} is {digit}")
+            print(f"Found #{digit_index} digit of {number} is {digit}")
 
             break
     except ValueError:
