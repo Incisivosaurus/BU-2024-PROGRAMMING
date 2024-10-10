@@ -21,4 +21,4 @@ greeting_string = "Welcome to Programming unit! This is level 4 unit :)"
 print(f"{greeting_string[0]}{greeting_string[4]}")
 print(f"{greeting_string[0:5]}")
 print(f"{greeting_string[-1]}")
-print(f"{greeting_string[-7:-4]}")
+print(f"{greeting_string[-7:-4]}") # -7 will start at the 7th last character, and -3 will get all characters 3rd from last.
