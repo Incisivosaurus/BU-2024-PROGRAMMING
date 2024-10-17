@@ -68,5 +68,8 @@ def encoding_function(message_in_number):
     print(f"The encoded message is: {result}")
 
     return result
-# # Example usage:
-encoding_function("2 0 5 4")  # Uncomment to test the function
+
+
+if __name__ == "__main__":
+    # # Example usage:
+    encoding_function("2 0 5 4")  # Uncomment to test the function
