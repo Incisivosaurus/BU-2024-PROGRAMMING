@@ -12,7 +12,16 @@ def max_of_three(num1, num2, num3):
     """
     # Hint: you are required to make use of maximum variable that is returned by the function below.
     # Complete your code implementation here...
-    return max(num1, num2, num3)
+
+    biggest = num1
+
+    if num2 > biggest and num2 >= num3:
+        biggest = num2
+    elif num3 > biggest and num3 >= num2:
+        biggest = num3
+
+    # We could just do max(num1, num2, num3) but we've been told to not use methods that we haven't been taught in lesson, so to be safe, I'm not using it
+    return biggest
 
 # # You are out of the body function where you can test your code.
 # Example usage:
