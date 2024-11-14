@@ -31,7 +31,7 @@ The function will also update the inventory_records (For restocking) for a  give
     available_items -= sold_units # Update the amount of available items after sales
 
     # Update the latest entries data
-    inventory_records[-1][1] = sold_units # Update sold units to be the new accurate amount
-    inventory_records[-1][3] = available_items # Update the new amount of available items
+    inventory_records[current_day][1] = sold_units # Update sold units to be the new accurate amount
+    inventory_records[current_day][3] = available_items # Update the new amount of available items
     
     return available_items
