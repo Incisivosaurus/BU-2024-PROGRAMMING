@@ -35,38 +35,38 @@ def calculator(num1, num2, operator):
     result = None
 
     if operator == "+":
-        result = num1 + num2
+        result = num1 + num2 # If the operator is +, add the 2 numbers together
     elif operator == "-":
-        result = num1 - num2
+        result = num1 - num2 # If the operator is -, subtract num2 from num1
     elif operator == "*":
-        result = num1 * num2
-    elif operator == "/":
-        if num2 == 0:
-            print(f"Mathematical error detected: divison by zero")
+        result = num1 * num2 # If the operator is *, multiply the 2 numbers together
+    elif operator == "/": # If the operator is /, divide num1 by num2
+        if num2 == 0: # You cannot divide by zero, so check if num2 is zero
+            print(f"Mathematical error detected: division by zero") # If num2 is zero, print a division by zero message
 
-            return
+            return # Return early, doing nothing if num2 is zero
         
         result = num1 / num2
-    elif operator == "%":
-        if num2 == 0:
-            print(f"Mathematical error detected: divison by zero")
+    elif operator == "%": # If the operator is %, get the remaining value of num1 being divided by num2
+        if num2 == 0: # You cannot divide by zero, so check if num2 is zero
+            print(f"Mathematical error detected: division by zero") # If num2 is zero, print a division by zero message
 
-            return
+            return # Return early, doing nothing if num2 is zero
         
         result = num1 % num2
     elif operator == ">":
-        result = num1 > num2
+        result = num1 > num2 # If the operator is >, check if num1 exceeds num2
     elif operator == ">=":
-        result = num1 >= num2
+        result = num1 >= num2 # If the operator is >=, check if num1 exceeds or is equal to num2
     elif operator == "<":
-        result = num1 < num2
+        result = num1 < num2 # If the operator is <, check if num1 is less than num2
     elif operator == "<=":
-        result = num1 <= num2
+        result = num1 <= num2 # If the operator is <=, check if num1 is less than or equal to num2
     else:
-        print("Invalid operator.")
+        print("Invalid operator.") # If the operator isn't any of the ones above, just print an error message
 
     if result is not None:
-        print(f"The result is: {result}")
+        print(f"The result is: {result}") # If there is a successful mathematical result, print what it is
 
     return result
 
