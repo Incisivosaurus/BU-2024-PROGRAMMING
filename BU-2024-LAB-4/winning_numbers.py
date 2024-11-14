@@ -28,20 +28,21 @@ def winning_numbers(user_list, winning_list):
     """
 
     # Function implementation here ...
-    prize = "No"
+    prize = "No" # The default value, no prize
     
     # If the user tries to cheat but using more than 3 numbers, they're automatically disqualified
     if len(user_list) > 3:
         return prize
     
+    # Since intersect makes a new set of values that are mutually present in both sets, this will allow me to detect correct guesses
     matching_values = set(winning_list).intersection(user_list)
 
     if len(matching_values) == 3:
-        prize = "First"
+        prize = "First" # If you have 3 mutual values in the 2 sets, you get first place
     elif len(matching_values) == 2:
-        prize = "Second"
+        prize = "Second" # If you have 2 mutual values in the 2 sets, you get second place
     elif len(matching_values) == 1:
-        prize = "Third"
+        prize = "Third" # If you have 1 mutual values in the 2 sets, you get third place
         
     # Print the result
     print(f"Congratulations, you won {prize} prize!")
