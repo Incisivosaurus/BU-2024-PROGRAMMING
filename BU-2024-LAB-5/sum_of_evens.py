@@ -18,8 +18,6 @@ def sum_of_evens(min_value, max_value):
 
     """
 
-
-
     # Function implementation here ...
     total = 0 # Our variable for keeping track of the total value
 
