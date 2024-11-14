@@ -21,23 +21,10 @@ def are_anagrams(str1, str2):
     """
 
     # Function implementation here ...
-    
-    first = "" # Define new variable for storing a stripped down str1
-    second = "" # Define new variable for storing a stripped down str2
 
-    # Iterate over str getting each individual letter one by one
-    for letter in str1:
-        # Check if the letter is alphabetical
-        if letter.isalpha():
-            first += letter.lower() # If the letter is alphabetical, add it to the new first variable and force it to be lowercase
-
-    # Iterate over str getting each individual letter one by one
-    for letter in str2:
-        # Check if the letter is alphabetical
-        if letter.isalpha():
-            second += letter.lower() # If the letter is alphabetical, add it to the new first variable and force it to be lowercase
-
-    return sorted(first) == sorted(second)
+    # By alphabetically ordering the two strings, they should have the same result if they're actually anagrams
+    # Making sure the strings are converted to lowercases so case sensitivity doesn't break anything
+    return sorted(str1.casefold()) == sorted(str2.casefold())
 
 
 if __name__ == "__main__":
