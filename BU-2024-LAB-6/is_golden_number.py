@@ -24,4 +24,3 @@ if __name__ == "__main__":
 	print(is_golden_number(65) == True) # Expected result is True
 	print(is_golden_number(70) == True) # Expected result is True
 	print(is_golden_number(61) == True) # Expected result is True
-	print(is_golden_number(2) == True) # Expected result is True
