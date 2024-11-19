@@ -149,6 +149,37 @@ def winning_numbers(user_list, winning_list):
     return prize
 
 
+def sum_of_evens(min_value, max_value):
+    
+    """Find the sum of even numbers between two given numbers (inclusive).
+
+    Args:
+        min_value (int): Minimum number
+        max_value (int): Maximum number
+
+    Returns:
+        total: sum of the even numbers between min_value and max_value
+
+    Example:
+
+    min_value = 10
+    max_value = 13
+    total = sum_of_evens(min_value, max_value)
+    print(total) # total is 22.
+
+    """
+
+    # Function implementation here ...
+    total = 0 # Our variable for keeping track of the total value
+
+    # Loop over all numbers between min_value and max_value, to make it inclusive, we do + 1 at the end
+    for i in range(min_value, max_value + 1):
+        if i % 2 == 0: # Check if current value is even using modulo
+            total += i # If the condition above is true, add the value to the total
+    
+    return total
+
+
 def is_prime(num):
     """Checks if a number is prime.
 
@@ -266,6 +297,102 @@ def calculate_weekly_pay(hours_worked):
     return total_pay
 
 
+def km_to_miles(kilometers):
+    miles = kilometers * 0.62137 # Convert kilometers to miles
+
+    return round(miles, 3) # Round to the nearest 3 decimals
+
+
+def celsius_to_fahrenheit(celsius):
+    fahrenheit = celsius * 1.8 + 32 # Convert celsius to fahrenheit using the standard formula x * 9 / 5 + 32
+
+    return fahrenheit
+
+
+def annual_net_income(gross_salary):
+    if gross_salary >= 45_000:
+        tax_rate = 0.5 # Apply 50% tax if your gross salary is above or equal to 45k
+    elif gross_salary >= 30_000 and gross_salary < 45_000:
+        tax_rate = 0.3 # Apply 30% tax if your gross salary is above or equal to 30k and less than 45k
+    elif gross_salary < 30_000:
+        tax_rate = 0.15 # Apply 15% tax if your gross salary is less than 30l
+    
+    # Calculate salary post tax reduction
+    net_salary = gross_salary * (1 - tax_rate)
+
+    return net_salary
+
+
+def letter_occurrence(input_string):
+    count = 0 # Variable to keep track of occurrences
+
+    # Iterate over each individual character in the string
+    for letter in input_string:
+        # Add +1 to the count variable if the letter is equal to 'a' or 'A'
+        if letter == "a" or letter == "A":
+            count += 1
+
+    return count # Return the stored amount of occurrences
+
+
+def fuel_cost(distance_miles):
+    MPG = 50 # Miles per gallon
+    LITERS_PER_GALLON = 4.5 # Rough estimation on how many litres are in a gallon
+    PRICE_PER_LITER = 1.49 # Price in pounds per liter
+
+    # Calculate the total fuel cost by calculating the price per gallon traveled
+    total_cost = PRICE_PER_LITER * distance_miles / MPG * LITERS_PER_GALLON
+
+    return total_cost
+
+
+def find_maximum_difference(a, b):
+    smallest_of_a = min(a) # Return which value is the smallest in the first list
+    biggest_of_a = max(a) # Return which value is the biggest in the first list
+    smallest_of_b = min(b) # Return which value is the smallest in the second list
+    biggest_of_b = max(b) # Return which value is the biggest in the second list
+
+    difference_of_a = biggest_of_a - smallest_of_b # Find the difference of the biggest value from the first list and the smallest value of the second list
+    difference_of_b = biggest_of_b - smallest_of_a # Find the difference of the biggest value from the second list and the smallest value of the first list
+
+    # Return the biggest value of the two
+    return max(difference_of_a, difference_of_b)
+
+
+def is_golden_number(n):
+    # Only accept positive values (anything above 0) and only accept values less than 1,000
+    if n <= 0 or n >= 1000:
+        return False
+
+    # If (n - 1) ^ 2 is less than 1,000, then the product of any two integers (i, j) adding up to 'n' will also
+    # be less than 1,000, thus not being divisible by 1,000 without a remainder
+    if (n - 1) ** 2 < 1000:
+        return False
+
+    # Loop over all values between 2 (inclusive) and 'n' (exclusive)
+    # We can start at 2 instead of 1 because 1 will never multiply to a number divisible by 1,000 as 'n' can only ever be less than 1,000
+    for i in range(2, n):
+        # There's no reason to loop over 'n' again, so we may as well limit it to the value 'i' is at (inclusively by adding +1).
+        for j in range(2, i + 1):
+            # If 'i' and 'j' equal exactly 'n' and can be cleanly divided by 1,000 without a remainder, return True
+            if i + j == n and i * j % 1000 == 0:
+                return True
+
+    return False
+
+
+def decrypt_cypher_text(encrypted_text, key):
+    decrypted_text = "" # New variable to store the decrypted text
+
+    # Loop over each character in encrypted_text
+    for character in encrypted_text:
+        ascii_code = ord(character) # Get the ascii value (i.e; A=65)
+        remainder = (ascii_code - key) % 256 # Find the remainder of the key being subtracted from the ascii_code then divided by 256
+        decrypted_text += chr(remainder) # Convert the remainder value to its ascii equivalent and concatenate it to decrypted_text
+
+    return decrypted_text
+
+
 ## Run the example
 if __name__ == "__main__":
     calculator(4, 5, "*")  # Output: The result is: 20
@@ -281,6 +408,13 @@ if __name__ == "__main__":
     winning_numbers([3, 5, 10], winning_list)
     winning_numbers([14, 5, 10], winning_list)
 
+    # # # Run code example
+    min_value = 10
+    max_value = 13
+    result = sum_of_evens(min_value, max_value) # returns 22
+    
+    print(result)
+
     boolean = is_prime(5)   # returns True
 
     print(boolean)
@@ -295,3 +429,32 @@ if __name__ == "__main__":
     overtime_pay = calculate_weekly_pay(36) # return 438 i.e, 438 in pounds per week.
     
     print(overtime_pay)
+
+    print(km_to_miles(1) == 0.621) # Expected result is True
+    print(km_to_miles(5) == 3.107) # Expected result is True
+    print(km_to_miles(7) == 4.349) # Expected result is False
+
+    print(celsius_to_fahrenheit(32) == 89.6) # Result should be true
+    print(celsius_to_fahrenheit(27.5) == 81.5) # Result should be true
+    print(celsius_to_fahrenheit(35) == 90) # Result should be false
+
+    print(annual_net_income(60_000) == 30_000) # Expected result is True
+    print(annual_net_income(30_000) == 21_000) # Expected result is True
+    print(annual_net_income(20_000) == 17_000) # Expected result is True
+
+    print(letter_occurrence("amazing") == 2) # Expected result is 2
+    print(letter_occurrence("Always aim ambitiously") == 4) # Expected result is 4
+
+    print(fuel_cost(50) == 6.705) # Expected result is True
+    print(fuel_cost(33) == 4.4253) # Expected result is True
+
+    print(find_maximum_difference([1, 5, 600], [100, 7, 3, 29, 39])) # Expected output is 597
+    print(find_maximum_difference([1, 5, 600], [100, 7, 3, 602, 39])) # Expected output is 601
+    print(find_maximum_difference([100, 1], [99, 5])) # Expected output is 98
+
+    print(is_golden_number(65) == True) # Expected result is True
+    print(is_golden_number(70) == True) # Expected result is True
+    print(is_golden_number(61) == True) # Expected result is True
+
+    # Expected output is "Each error you make in programming is an opportunity to become a better developer"
+    print(decrypt_cypher_text("Hdfk#huuru#|rx#pdnh#lq#surjudpplqj#lv#dq#rssruwxqlw|#wr#ehfrph#d#ehwwhu#ghyhorshu", 3))
