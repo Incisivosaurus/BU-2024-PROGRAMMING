@@ -27,7 +27,7 @@ The function will also update the inventory_records (For restocking) for a  give
         return available_items
 
     # Generate a random value from 0 to 200 to simulate sold units
-    sold_units = random.randint(0, min(200, available_items)) # Using min will prevent us from selling more shirts than we have in stock
+    sold_units = random.randint(0, 200) # Get a random number from 0 to 200 to simulate sales throughout the week. Min is not needed here because we'll never sell more than 1400 a week anyway
     available_items -= sold_units # Update the amount of available items after sales
 
     # Update the latest entries data
