@@ -1,5 +1,5 @@
 def km_to_miles(kilometers):
-    miles = kilometers * 0.62137 # Convert kilometers to miles
+    miles = kilometers * 0.62 # Convert kilometers to miles
 
     return round(miles, 3) # Round to the nearest 3 decimals
 
